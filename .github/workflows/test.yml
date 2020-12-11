@@ -4,7 +4,7 @@ name: test
 
 jobs:
   simpleExample:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X64]
     steps:
     # checkout branch
     - uses: actions/checkout@master
