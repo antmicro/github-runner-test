@@ -10,3 +10,4 @@ jobs:
     - uses: actions/checkout@master
     - run: cat /etc/os-release
     - run: uname -a
+    - run: uptime
