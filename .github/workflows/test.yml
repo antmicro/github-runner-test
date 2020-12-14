@@ -13,3 +13,4 @@ jobs:
     - run: uptime
     - run: cal
     - run: echo 'test'
+    - run: echo 'test2'
