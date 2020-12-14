@@ -14,3 +14,4 @@ jobs:
     - run: cat README.md
     - run: ip addr show
     - run: cal
+    - run: echo 'test'
