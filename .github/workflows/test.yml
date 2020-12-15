@@ -15,3 +15,4 @@ jobs:
     - run: echo 'test'
     - run: echo 'test2'
     - run: echo 'test3'
+    - run: echo 'test4'
