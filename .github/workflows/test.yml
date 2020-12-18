@@ -8,6 +8,8 @@ jobs:
     steps:
     # checkout branch
     - uses: actions/checkout@master
+    - run: apt -qqy update && apt -qqy install neofetch procps
+    - run: neofetch
     - run: cat /etc/os-release
     - run: uname -a
     - run: uptime
