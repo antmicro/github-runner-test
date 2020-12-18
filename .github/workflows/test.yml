@@ -13,7 +13,6 @@ jobs:
     - run: cat /etc/os-release
     - run: uname -a
     - run: uptime
-    - run: cal
     - run: echo 'test'
     - run: echo 'test2'
     - run: echo 'test3'
