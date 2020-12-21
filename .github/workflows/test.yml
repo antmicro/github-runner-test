@@ -17,4 +17,5 @@ jobs:
     - run: echo 'test2'
     - run: echo 'test3'
     - run: echo 'test4'
+    - run: echo 'test5'
     - run: sleep 30
