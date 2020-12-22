@@ -19,3 +19,16 @@ jobs:
     - run: echo 'test4'
     - run: echo 'test5'
     - run: sleep 300
+  simpleExample2:
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+    # checkout branch
+    - uses: actions/checkout@master
+    - run: ls -alh
+    - run: uptime
+    - run: echo 'test'
+    - run: echo 'test2'
+    - run: echo 'test3'
+    - run: echo 'test4'
+    - run: echo 'test5'
+    - run: sleep 300
