@@ -18,7 +18,6 @@ jobs:
     - run: echo 'test3'
     - run: echo 'test4'
     - run: echo 'test5'
-    - run: sleep 300
   simpleExample2:
     runs-on: [self-hosted, Linux, X64]
     steps:
@@ -29,4 +28,3 @@ jobs:
     - run: echo 'test3'
     - run: echo 'test4'
     - run: echo 'test5'
-    - run: sleep 300
