@@ -28,7 +28,7 @@ jobs:
     steps:
     # checkout branch
     - run: ls -alh
-      working-directory: ".."
+      working-directory: "test"
     - run: echo 'test'
     - run: echo 'test2'
     - run: echo 'test3'
