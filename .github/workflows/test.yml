@@ -23,9 +23,7 @@ jobs:
     runs-on: [self-hosted, Linux, X64]
     steps:
     # checkout branch
-    - uses: actions/checkout@master
     - run: ls -alh
-    - run: uptime
     - run: echo 'test'
     - run: echo 'test2'
     - run: echo 'test3'
