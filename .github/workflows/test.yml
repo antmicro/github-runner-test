@@ -19,6 +19,13 @@ jobs:
     - run: printenv
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING3"
+    - run: |
+        export TEST_ENV1="test"
+        export TEST_ENV2="test2"
+        printenv
+        echo "test"
+        echo $TEST_STRING2
+        echo $TEST_STRING_RUN
     - run: apt -qqy update && apt -qqy install neofetch procps
     - run: neofetch
     - run: cat /etc/os-release
