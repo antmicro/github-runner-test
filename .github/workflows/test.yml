@@ -16,7 +16,7 @@ jobs:
       with:
         repository: "antmicro/tensorflow-arduino-examples"
         path: "target_repo"
-    - run: echo 'smth'
+    - run: printenv
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING3"
     - run: apt -qqy update && apt -qqy install neofetch procps
