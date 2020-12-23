@@ -7,12 +7,12 @@ jobs:
     runs-on: [self-hosted, Linux, X64]
     steps:
     # checkout branch
-    - uses: actions/checkout@master
-    - name: Clone target repository
-      uses: actions/checkout@v2
-      with:
-        repository: "antmicro/tensorflow-arduino-examples"
-        path: "target_repo"
+    #- uses: actions/checkout@master
+    #- name: Clone target repository
+    #  uses: actions/checkout@v2
+    #  with:
+    #    repository: "antmicro/tensorflow-arduino-examples"
+    #    path: "target_repo"
     - run: apt -qqy update && apt -qqy install neofetch procps
     - run: neofetch
     - run: cat /etc/os-release
