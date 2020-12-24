@@ -33,6 +33,7 @@ jobs:
     - run: cat test.txt
     - run: ls -alh
       working-directory: target_repo
+    - run: ls -alh
     - run: apt -qqy update && apt -qqy install neofetch procps
     - run: neofetch
     - run: cat /etc/os-release
