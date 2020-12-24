@@ -26,6 +26,7 @@ jobs:
         echo "test"
         echo $TEST_STRING2
         echo $TEST_STRING_RUN
+        pwd
     - run: apt -qqy update && apt -qqy install neofetch procps
     - run: neofetch
     - run: cat /etc/os-release
