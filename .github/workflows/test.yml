@@ -29,7 +29,7 @@ jobs:
         pwd
         ls -alh
     - run: cat README.md
-    - run: cat README.md
+    - run: ls -alh
       working-directory: target_repo
     - run: apt -qqy update && apt -qqy install neofetch procps
     - run: neofetch
