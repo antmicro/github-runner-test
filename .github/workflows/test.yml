@@ -27,6 +27,10 @@ jobs:
         echo $TEST_STRING2
         echo $TEST_STRING_RUN
         pwd
+        ls -alh
+    - run: cat README.md
+    - run: cat README.md
+      working-directory: target_repo
     - run: apt -qqy update && apt -qqy install neofetch procps
     - run: neofetch
     - run: cat /etc/os-release
