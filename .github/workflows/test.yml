@@ -45,3 +45,12 @@ jobs:
     - run: echo 'test3'
     - run: echo 'test4'
     - run: echo 'test5'
+  simpleExample2:
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      TEST_STRING: "VERY_COOL_STRING"
+      TEST_STRING2: "VERY_COOL_STRING2"
+    steps:
+    - run: printenv
+      env:
+        TEST_STRING_RUN: "VERY_COOL_STRING3"
