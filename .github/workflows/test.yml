@@ -4,7 +4,7 @@ name: test
 
 jobs:
   simpleExample:
-    container: debian-buster
+    container: debian:buster
     runs-on: [self-hosted, Linux, X64]
     env:
       TEST_STRING: "VERY_COOL_STRING"
@@ -47,7 +47,15 @@ jobs:
     - run: echo 'test4'
     - run: echo 'test5'
   simpleExample2:
-    container: ubuntu-bionic
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {tag: "xenial"}
+          - {tag: "bionic"}
+          - {tag: "eoan"}
+          - {tag: "focal"}
+    container: ubuntu:${{ matrix.tag }}
     runs-on: [self-hosted, Linux, X64]
     env:
       TEST_STRING: "VERY_COOL_STRING"
