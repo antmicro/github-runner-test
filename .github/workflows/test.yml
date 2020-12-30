@@ -54,7 +54,8 @@ jobs:
     - run: printenv
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING3"
-    - name: Set Up Python
-      uses: actions/setup-python@v1
-    - run: ls -alh
-    - run: python3 --version
+    - run: echo $TEST_STRING2 > test.txt
+    - uses: actions/upload-artifact@v2
+      with:
+        path: |
+          test.txt
