@@ -29,6 +29,7 @@ jobs:
         echo $TEST_STRING_RUN
         pwd
         ls -alh
+        echo "action_state=yellow" >> $GITHUB_ENV
     - run: cat README.md
     - run: echo 'test' > test.txt
     - run: cat test.txt
