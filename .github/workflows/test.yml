@@ -31,6 +31,7 @@ jobs:
         ls -alh
         echo "action_state=yellow" >> $GITHUB_ENV
     - run: cat README.md
+    - run: printenv
     - run: echo 'test' > test.txt
     - run: cat test.txt
     - run: ls -alh
