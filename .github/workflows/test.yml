@@ -62,6 +62,7 @@ jobs:
         yum -y install which
         yum -y groupinstall 'Development Tools'
         echo "/opt/rh/rh-python36/root/usr/bin" >> $GITHUB_PATH
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
     - run: printenv
     - run: pip3 install git+https://github.com/antmicro/tuttest#egg=tuttest
     - run: which tuttest
