@@ -49,6 +49,22 @@ jobs:
     - run: echo 'test3'
     - run: echo 'test4'
     - run: echo 'test5'
+  pythonExamples:
+    container: centos:7
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+    - run: printenv
+    - run: |
+        yum -y install centos-release-scl 
+        yum -y install rh-python36 
+        yum -y install git 
+        yum -y install wget
+        yum -y groupinstall 'Development Tools'
+        echo "/opt/rh/rh-python36/root/usr/bin" >> $GITHUB_PATH
+    - run: printenv
+    - run: pip3 install git+https://github.com/antmicro/tuttest#egg=tuttest
+    - run: which tuttest
+        
   simpleExample2:
     strategy:
       fail-fast: false
