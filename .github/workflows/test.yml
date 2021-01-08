@@ -17,6 +17,7 @@ jobs:
       with:
         repository: "antmicro/tensorflow-arduino-examples"
         path: "target_repo"
+    - run: hostname
     - run: printenv
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING3"
@@ -61,6 +62,7 @@ jobs:
       TEST_STRING: "VERY_COOL_STRING"
       TEST_STRING2: "VERY_COOL_STRING2"
     steps:
+    - run: hostname
     - run: printenv
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING3"
