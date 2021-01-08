@@ -59,6 +59,7 @@ jobs:
         yum -y install rh-python36 
         yum -y install git 
         yum -y install wget
+        yum -y install which
         yum -y groupinstall 'Development Tools'
         echo "/opt/rh/rh-python36/root/usr/bin" >> $GITHUB_PATH
     - run: printenv
