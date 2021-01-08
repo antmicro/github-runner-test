@@ -67,9 +67,12 @@ jobs:
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING3"
     - run: echo $TEST_STRING2 > test.txt
+    - run: ln -s /root/work/test.txt /root/work/test2.txt
+    - run: touch /etc/test && ln -s /etc/test /root/work/test3.txt
+    - run: ln -s /root/work/test.txt /root/work/text4.txt
     - run: apt -qqy update && apt -qqy install neofetch
     - run: neofetch
     - uses: actions/upload-artifact@v2
       with:
         path: |
-          test.txt
+          **/*.txt
