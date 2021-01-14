@@ -39,7 +39,8 @@ jobs:
       working-directory: target_repo
     - run: ls -alh
     - run: df -H
-    - run: apt -qqy update && apt -qqy install neofetch procps
+    - run: apt -qqy update && apt -qqy install neofetch procps wget
+    - run: wget https://speed.hetzner.de/1GB.bin
     - run: neofetch
     - run: cat /etc/os-release
     - run: uname -a
