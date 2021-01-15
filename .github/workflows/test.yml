@@ -95,3 +95,4 @@ jobs:
       with:
         path: |
           **/*.txt
+          **/*.svg
