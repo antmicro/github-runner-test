@@ -50,6 +50,11 @@ jobs:
     - run: echo 'test3'
     - run: echo 'test4'
     - run: echo 'test5'
+    - uses: actions/upload-artifact@v2
+      with:
+        path: |
+          **/*.txt
+          **/*.svg
   pythonExamples:
     container: centos:7
     runs-on: [self-hosted, Linux, X64]
@@ -67,6 +72,11 @@ jobs:
     - run: printenv
     - run: pip3 install git+https://github.com/antmicro/tuttest#egg=tuttest
     - run: which tuttest
+    - uses: actions/upload-artifact@v2
+      with:
+        path: |
+          **/*.txt
+          **/*.svg
         
   simpleExample2:
     strategy:
