@@ -2,60 +2,7 @@ on: [push]
 
 name: test
 
-jobs:
-  simpleExample:
-    container: debian:buster
-    runs-on: [self-hosted, Linux, X64]
-    env:
-      TEST_STRING: "VERY_COOL_STRING"
-      TEST_STRING2: "VERY_COOL_STRING2"
-    steps:
-    # checkout branch
-    - uses: actions/checkout@master
-    - name: Clone target repository
-      uses: actions/checkout@v2
-      with:
-        repository: "antmicro/tensorflow-arduino-examples"
-        path: "target_repo"
-    - run: hostname
-    - run: printenv
-      env:
-        TEST_STRING_RUN: "VERY_COOL_STRING3"
-    - run: |
-        export TEST_ENV1="test"
-        export TEST_ENV2="test2"
-        printenv
-        echo "test"
-        echo $TEST_STRING2
-        echo $TEST_STRING_RUN
-        pwd
-        ls -alh
-        echo "action_state=yellow" >> $GITHUB_ENV
-    - run: cat README.md
-    - run: printenv
-    - run: echo 'test' > test.txt
-    - run: cat test.txt
-    - run: ls -alh
-      working-directory: target_repo
-    - run: ls -alh
-    - run: df -H
-    - run: apt -qqy update && apt -qqy install neofetch procps wget
-    - run: wget https://speed.hetzner.de/1GB.bin
-    - run: neofetch
-    - run: cat /etc/os-release
-    - run: uname -a
-    - run: uptime
-    - run: echo 'test'
-    - run: echo 'test2'
-    - run: echo 'test3'
-    - run: echo 'test4'
-    - run: echo 'test5'
-    - uses: actions/upload-artifact@v2
-      with:
-        path: |
-          **/*.txt
-          **/*.svg
-        
+jobs:        
   simpleExample2:
     strategy:
       fail-fast: false
