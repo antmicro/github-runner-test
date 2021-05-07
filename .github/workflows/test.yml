@@ -10,6 +10,8 @@ jobs:
         include:
           - {tag: "bionic"}
           - {tag: "focal"}
+          - {tag: "groovy"}
+          - {tag: "hirsute"}
     container: ubuntu:${{ matrix.tag }}
     runs-on: [self-hosted, Linux, X64]
     env:
