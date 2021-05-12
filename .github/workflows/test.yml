@@ -22,6 +22,7 @@ jobs:
     - run: printenv
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING3"
+    - run: df -h .
     - run: echo $TEST_STRING2 > test.txt
     - run: ln -s /root/work/test.txt /root/work/test2.txt
     - run: touch /etc/test && ln -s /etc/test /root/work/test3.txt
