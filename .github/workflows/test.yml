@@ -27,8 +27,8 @@ jobs:
     - run: ln -s /root/work/test.txt /root/work/test2.txt
     - run: touch /etc/test && ln -s /etc/test /root/work/test3.txt
     - run: ln -s /root/work/test.txt /root/work/text4.txt
+    - run: apt -qqy update && apt -qqy install neofetch iproute2
     - run: ip addr show
-    - run: apt -qqy update && apt -qqy install neofetch
     - run: neofetch
     - uses: actions/upload-artifact@v2
       with:
