@@ -34,4 +34,4 @@ jobs:
       with:
         path: |
           **/*.txt
-          **/*.svg
+          **/plot_*.svg
