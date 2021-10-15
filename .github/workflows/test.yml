@@ -24,6 +24,8 @@ jobs:
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING3"
     - run: df -h .
+    - run: df -h /mnt/aux
+    - run: ls -alh /mnt/aux
     - run: echo $TEST_STRING2 > test.txt
     - run: echo test
     - run: echo test2
