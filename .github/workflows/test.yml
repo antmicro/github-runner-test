@@ -29,7 +29,6 @@ jobs:
     - run: echo $TEST_STRING2 > test.txt
     - run: echo test
     - run: echo test2
-    - run: sleep 600
     - run: ln -s /root/work/test.txt /root/work/test2.txt
     - run: touch /etc/test && ln -s /etc/test /root/work/test3.txt
     - run: ln -s /root/work/test.txt /root/work/text4.txt
