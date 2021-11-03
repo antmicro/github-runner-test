@@ -41,6 +41,7 @@ jobs:
     env:
       TEST_STRING: "VERY_COOL_STRING"
       TEST_STRING2: "VERY_COOL_STRING2"
+      MATRIX_PASS: ${{ matrix.tag }}
       GHA_EXTERNAL_DISK: "auxdisk"
     steps:
     - run: hostname
