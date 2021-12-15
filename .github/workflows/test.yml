@@ -55,6 +55,7 @@ jobs:
     - run: echo test
     - run: echo test2
     - run: echo test3
+    - run: echo test4
     - run: ln -s /root/work/test.txt /root/work/test2.txt
     - run: touch /etc/test && ln -s /etc/test /root/work/test3.txt
     - run: ln -s /root/work/test.txt /root/work/text4.txt
