@@ -34,7 +34,7 @@ jobs:
         include:
           - {tag: "bionic"}
           - {tag: "focal"}
-          - {tag: "groovy"}
+          - {tag: "impish"}
           - {tag: "hirsute"}
     container: ubuntu:${{ matrix.tag }}
     runs-on: [self-hosted, Linux, X64]
