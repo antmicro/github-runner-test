@@ -44,6 +44,9 @@ jobs:
       MATRIX_PASS: ${{ matrix.tag }}
       GHA_EXTERNAL_DISK: "auxdisk"
     steps:
+    - name: Setup repository
+      uses: actions/checkout@v2
+    - run: ./out_err.sh
     - run: hostname
     - run: printenv
       env:
