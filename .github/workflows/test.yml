@@ -44,7 +44,7 @@ jobs:
       TEST_STRING2: "VERY_COOL_STRING2"
       MATRIX_PASS: ${{ matrix.tag }}
       GHA_EXTERNAL_DISK: "auxdisk"
-      GHA_SA: "gh-actions-runner-newflow-sa-3"
+      GHA_SA: "gh-sa-runner-test-bucket"
       DEBIAN_FRONTEND: noninteractive
     steps:
     - name: Setup repository
