@@ -46,6 +46,7 @@ jobs:
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_SA: "gh-sa-runner-test-bucket"
       GCE_METADATA_HOST: "169.254.169.254"
+      GCE_METADATA_ROOT: "169.254.169.254"
       DEBIAN_FRONTEND: noninteractive
     steps:
     - name: Setup repository
