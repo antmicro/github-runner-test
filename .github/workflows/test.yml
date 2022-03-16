@@ -11,7 +11,7 @@ jobs:
       TEST_STRING2: "VERY_COOL_STRING2"
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_PREEMPTIBLE: "false"
-      GHA_SA: "gh-act-runner-test-bucket-sa"
+      GHA_SA: "gh-sa-runner-test-bucket"
     steps:
     - run: hostname
     - run: printenv
@@ -45,6 +45,7 @@ jobs:
       MATRIX_PASS: ${{ matrix.tag }}
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_SA: "gh-sa-runner-test-bucket"
+      GCE_METADATA_HOST: "169.254.169.254"
       DEBIAN_FRONTEND: noninteractive
     steps:
     - name: Setup repository
