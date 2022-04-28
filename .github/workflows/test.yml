@@ -27,6 +27,8 @@ jobs:
     - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
     - run: chmod +x screenfetch
     - run: screenfetch
+    - run: sleep 5 &
+    - run: echo "this should execute"
   ubuntu:
     strategy:
       fail-fast: false
