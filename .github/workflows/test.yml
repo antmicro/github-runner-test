@@ -29,5 +29,5 @@ jobs:
     - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
     - run: chmod +x screenfetch
     - run: echo $GHA_SSH_TUNNEL_CONFIG
-    - run: yum install wget
+    - run: yum -y install wget
     - run: wget http://localhost:8080
