@@ -30,4 +30,4 @@ jobs:
     - run: chmod +x screenfetch
     - run: echo $GHA_SSH_TUNNEL_CONFIG
     - run: yum -y install wget
-    - run: wget http://localhost:8080
+    - run: wget http://localhost:8080 && cat index.html
