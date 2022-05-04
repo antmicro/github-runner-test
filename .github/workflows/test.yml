@@ -12,7 +12,7 @@ jobs:
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_PREEMPTIBLE: "false"
       GHA_SSH_TUNNEL_KEY: "${{ secrets.GHA_SSH_TUNNEL_KEY }}"
-      GHA_SSH_TUNNEL_CONFIG: "${{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
+      GHA_SSH_TUNNEL_CONFIG: "some garbage"
     steps:
     - run: hostname
     - run: printenv
