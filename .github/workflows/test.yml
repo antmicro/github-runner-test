@@ -29,3 +29,5 @@ jobs:
     - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
     - run: chmod +x screenfetch
     - run: echo $GHA_SSH_TUNNEL_CONFIG
+    - run: apt-get -qqy update && apt-get -qqy install wget
+    - run: wget http://localhost:8080
