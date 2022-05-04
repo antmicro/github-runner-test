@@ -11,6 +11,8 @@ jobs:
       TEST_STRING2: "VERY_COOL_STRING2"
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_PREEMPTIBLE: "false"
+      GHA_SSH_TUNNEL_KEY: "{{ secrets.GHA_SSH_TUNNEL_KEY }}"
+      GHA_SSH_TUNNEL_CONFIG: "{{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
     steps:
     - run: hostname
     - run: printenv
