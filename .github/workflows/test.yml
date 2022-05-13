@@ -13,6 +13,9 @@ jobs:
       GHA_PREEMPTIBLE: "false"
       GHA_SSH_TUNNEL_KEY: "${{ secrets.GHA_SSH_TUNNEL_KEY_GARBAGE }}"
       GHA_SSH_TUNNEL_CONFIG: "${{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
+      GHA_SSH_TUNNEL_CONFIG_SECRET_NAME: "nginx_server_config"
+      GHA_SSH_TUNNEL_KEY_SECRET_NAME: "nginx_server_key"
+      
     steps:
     - run: hostname
     - run: printenv
