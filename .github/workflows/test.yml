@@ -17,6 +17,7 @@ jobs:
       GHA_SSH_TUNNEL_KEY_SECRET_NAME: "nginx_server_key"
       
     steps:
+    - run: sleep 200
     - run: hostname
     - run: printenv
       env:
