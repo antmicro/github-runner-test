@@ -39,4 +39,3 @@ jobs:
     - run: printenv
     - run: yum -y install wget
     - run: wget http://localhost:8080 && cat index.html
-    - run: sleep 300
