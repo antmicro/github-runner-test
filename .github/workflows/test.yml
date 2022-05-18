@@ -17,6 +17,9 @@ jobs:
       GHA_SSH_TUNNEL_KEY_SECRET_NAME: "nginx_server_key"
       
     steps:
+    - uses: actions/checkout@v2
+      with:
+          submodules: recursive
     - run: hostname
     - run: printenv
       env:
