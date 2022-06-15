@@ -19,3 +19,4 @@ jobs:
     - run: ls -alh
     - run: mkdir -p ${{ secrets.ANOTHER_COOL_SECRET }}
     - run: ls -alh
+    - run: cd ${{ secrets.ANOTHER_COOL_SECRET }}
