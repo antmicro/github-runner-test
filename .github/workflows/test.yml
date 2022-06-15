@@ -1,4 +1,4 @@
-on: [push]
+on: [push,pull_request]
 
 name: test
 
@@ -20,3 +20,4 @@ jobs:
     - run: mkdir -p ${{ secrets.ANOTHER_COOL_SECRET }}
     - run: ls -alh
     - run: cd ${{ secrets.ANOTHER_COOL_SECRET }}
+    - run: ls -alh
