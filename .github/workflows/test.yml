@@ -4,11 +4,9 @@ name: test
 
 jobs:
   centos:
-    container: centos:7
+    container: ubuntu:bionic 
     runs-on: [self-hosted, Linux, X64]
     env:
-      TEST_STRING: "VERY_COOL_STRING"
-      TEST_STRING2: "VERY_COOL_STRING2"
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_PREEMPTIBLE: "false"
       GHA_SSH_TUNNEL_KEY: "${{ secrets.GHA_SSH_TUNNEL_KEY_GARBAGE }}"
@@ -17,25 +15,11 @@ jobs:
       GHA_SSH_TUNNEL_KEY_SECRET_NAME: "nginx_server_key"
       
     steps:
-    - uses: actions/checkout@v2
-      with:
-          submodules: recursive
-    - run: ls -alh
-    - run: hostname
-    - run: printenv
-      env:
-        TEST_STRING_RUN: "VERY_COOL_STRING4"
-    - run: df -h .
-    - run: df -h /mnt/aux
-    - run: ls -alh /mnt/aux
-    - name: Checkout tools repo
-      uses: actions/checkout@v2
-      with:
-        repository: KittyKatt/screenFetch
-        path: screenfetch
-    - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
-    - run: chmod +x screenfetch
-    - run: echo $GHA_SSH_TUNNEL_CONFIG
-    - run: printenv
-    - run: yum -y install wget
-    - run: wget http://localhost:8080 && cat index.html
+    - name: '🛠️ Setup Python and gsutil'
+      run: |
+        apt update -qqy
+        apt install -qqy curl python3
+        echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+        curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+        apt update -qqy
+        apt install -qqy google-cloud-cli
