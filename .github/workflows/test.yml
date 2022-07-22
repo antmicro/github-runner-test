@@ -24,7 +24,7 @@ jobs:
     - run: hostname
     - run: printenv
       env:
-        TEST_STRING_RUN: "VERY_COOL_STRING4"
+        TEST_STRING_RUN: "VERY_COOL_STRING5"
     - run: df -h .
     - run: df -h /mnt/aux
     - run: ls -alh /mnt/aux
