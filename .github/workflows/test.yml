@@ -39,3 +39,17 @@ jobs:
     - run: printenv
     - run: yum -y install wget
     - run: wget http://localhost:8080 && cat index.html
+
+  simple-job:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - uses: actions/checkout@v2
+      with:
+          submodules: recursive
+    - run: ls -alh
+    - run: hostname
+    - run: printenv
+    - run: df -h .
