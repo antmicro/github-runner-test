@@ -3,43 +3,6 @@ on: [push]
 name: test
 
 jobs:
-  centos:
-    container: centos:7
-    runs-on: [self-hosted, Linux, X64]
-    env:
-      TEST_STRING: "VERY_COOL_STRING"
-      TEST_STRING2: "VERY_COOL_STRING2"
-      GHA_EXTERNAL_DISK: "auxdisk"
-      GHA_PREEMPTIBLE: "false"
-      GHA_SSH_TUNNEL_KEY: "${{ secrets.GHA_SSH_TUNNEL_KEY_GARBAGE }}"
-      GHA_SSH_TUNNEL_CONFIG: "${{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
-      GHA_SSH_TUNNEL_CONFIG_SECRET_NAME: "nginx_server_config"
-      GHA_SSH_TUNNEL_KEY_SECRET_NAME: "nginx_server_key"
-      
-    steps:
-    - uses: actions/checkout@v2
-      with:
-          submodules: recursive
-    - run: ls -alh
-    - run: hostname
-    - run: printenv
-      env:
-        TEST_STRING_RUN: "VERY_COOL_STRING5"
-    - run: df -h .
-    - run: df -h /mnt/aux
-    - run: ls -alh /mnt/aux
-    - name: Checkout tools repo
-      uses: actions/checkout@v2
-      with:
-        repository: KittyKatt/screenFetch
-        path: screenfetch
-    - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
-    - run: chmod +x screenfetch
-    - run: echo $GHA_SSH_TUNNEL_CONFIG
-    - run: printenv
-    - run: yum -y install wget
-    - run: wget http://localhost:8080 && cat index.html
-
   simple-job:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
@@ -53,3 +16,4 @@ jobs:
     - run: hostname
     - run: printenv
     - run: df -h .
+    - run: sleep 200
