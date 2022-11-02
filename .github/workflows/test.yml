@@ -35,8 +35,6 @@ jobs:
         path: screenfetch
     - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
     - run: chmod +x screenfetch
-    - run: echo $GHA_SSH_TUNNEL_CONFIG
-    - run: printenv
     - run: yum -y install wget
     - run: wget http://localhost:8080 && cat index.html
     - uses: actions/upload-artifact@v3
