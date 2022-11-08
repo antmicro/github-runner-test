@@ -55,3 +55,13 @@ jobs:
     - run: hostname
     - run: printenv
     - run: df -h .
+
+  ipv6-test:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: apt -qqy update && apt -qqy install iputils-ping iproute2
+    - run: ip a
+    - run: ping -c 3 ipv6.google.com
