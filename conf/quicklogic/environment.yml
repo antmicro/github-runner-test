@@ -1,0 +1,17 @@
+name: quicklogic
+channels:
+  - litex-hub
+dependencies:
+  - litex-hub::quicklogic-yosys=0.8.0_105_gd282be04=20210625_074838
+  - litex-hub::quicklogic-yosys-plugins=1.2.0_11_g21045a9=20210625_074838
+  - litex-hub::vtr-optimized=8.0.0_4023_ge73e88940=20210625_074838
+  - make
+  - lxml
+  - simplejson
+  - intervaltree
+  - git
+  - pip
+  # Packages installed from PyPI
+  - pip:
+    - -r ../requirements.txt
+    - -r requirements.txt

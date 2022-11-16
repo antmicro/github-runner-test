@@ -1,0 +1,7 @@
+pycapnp==v1.1.0
+fasm
+rr-graph
+git+https://github.com/f4pga/prjxray.git#egg=prjxray
+git+https://github.com/chipsalliance/python-fpga-interchange.git#egg=python-fpga-interchange
+git+https://github.com/chipsalliance/f4pga-xc-fasm.git#egg=xc-fasm
+git+https://github.com/chipsalliance/f4pga-xc-fasm2bels.git#egg=fasm2bels

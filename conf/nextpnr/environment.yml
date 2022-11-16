@@ -1,0 +1,23 @@
+name: nextpnr-env
+channels:
+  - defaults
+  - litex-hub
+dependencies:
+  - litex-hub::yosys
+  - litex-hub::yosys-symbiflow-plugins
+  - litex-hub::vtr-optimized
+  - litex-hub::nextpnr-ice40
+  - litex-hub::nextpnr-nexus
+  - litex-hub::nextpnr-fpga_interchange
+  - litex-hub::nextpnr-xilinx=v0.0_2840_g86500ec6=20210722_152338_py37
+    # FIXME: Pin prjoxide as newer packages require glibc 2.29
+  - litex-hub::prjoxide=v0.0_407_g026e545=20210923_082942
+  - litex-hub::prjxray-db=0.0_252_g8372b58=20210723_083625
+  - litex-hub::prjxray-tools=0.1_2842_g6867429c=20210301_104249
+  - litex-hub::capnproto=0.8.0=20210316_201220
+  - litex-hub::capnproto-java=0.1.5_18_gcf62cd4=20210316_201220
+  - pip
+  - pip:
+    # Packages installed from PyPI
+    - -r ../requirements.txt
+    - -r requirements.txt
