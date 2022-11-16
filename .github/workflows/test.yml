@@ -9,9 +9,17 @@ jobs:
     env:
       GHA_PREEMPTIBLE: "false"
     steps:
-    - run: apt -qqy update && apt -qqy install iputils-ping iproute2 wget
+    - run: apt -qqy update && apt -qqy install iputils-ping iproute2 wget iptables
     - run: ip a
     - run: ping -c 3 ipv6.google.com
+    - run: "ping -c 3 -W 1 ipv4.google.com"
+    - run: |
+        iptables -A INPUT -s 192.168.0.0/16,172.16.0.0/12,10.0.0.0/8 -j ACCEPT
+        iptables -A OUTPUT -d 192.168.0.0/16,172.16.0.0/12,10.0.0.0/8 -j ACCEPT
+        iptables -P INPUT DROP
+        iptables -P OUTPUT DROP
+    - run: ping -c 3 ipv6.google.com
+    - run: "! ping -c 3 -W 1 ipv4.google.com"
     - run: mkdir dl env
     - run: wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O dl/Miniconda3-latest-Linux-x86_64.sh 2>&1 | cat
     - run: chmod a+x dl/Miniconda3-latest-Linux-x86_64.sh
