@@ -10,7 +10,7 @@ jobs:
       GHA_PREEMPTIBLE: "false"
     steps:
     - uses: actions/checkout@v3
-    - run: apt -qqy update && apt -qqy install iputils-ping iproute2 wget iptables python3 python3-pip
+    - run: apt -qqy update && apt -qqy install iputils-ping iproute2 wget iptables python3 python3-pip git
     - run: python3 -m pip install -r conf/requirements.txt
     - run: ip a
     - run: ping -c 3 ipv6.google.com
