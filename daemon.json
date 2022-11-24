@@ -1,0 +1,11 @@
+{
+    "default-runtime": "crun",
+    "runtimes": {
+        "crun": {
+            "path": "/usr/local/bin/crun",
+            "runtimeArgs": [
+                    "--cgroup-manager=disabled --rootless=true"
+            ]
+        }
+    }
+}

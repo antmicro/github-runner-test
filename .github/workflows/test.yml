@@ -3,46 +3,6 @@ on: [push]
 name: test
 
 jobs:
-  centos:
-    container: centos:7
-    runs-on: [self-hosted, Linux, X64]
-    env:
-      TEST_STRING: "VERY_COOL_STRING"
-      TEST_STRING2: "VERY_COOL_STRING2"
-      GHA_EXTERNAL_DISK: "auxdisk"
-      GHA_PREEMPTIBLE: "false"
-      GHA_SSH_TUNNEL_KEY: "${{ secrets.GHA_SSH_TUNNEL_KEY_GARBAGE }}"
-      GHA_SSH_TUNNEL_CONFIG: "${{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
-      GHA_SSH_TUNNEL_CONFIG_SECRET_NAME: "nginx_server_config"
-      GHA_SSH_TUNNEL_KEY_SECRET_NAME: "nginx_server_key"
-      
-    steps:
-    - uses: actions/checkout@v2
-      with:
-          submodules: recursive
-    - run: pwd
-    - run: ls -alh
-    - run: hostname
-    - run: printenv
-      env:
-        TEST_STRING_RUN: "VERY_COOL_STRING5"
-    - run: df -h .
-    - run: df -h /mnt/aux
-    - run: ls -alh /mnt/aux
-    - name: Checkout tools repo
-      uses: actions/checkout@v2
-      with:
-        repository: KittyKatt/screenFetch
-        path: screenfetch
-    - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
-    - run: chmod +x screenfetch
-    - run: yum -y install wget
-    - run: wget http://localhost:8080 && cat index.html
-    - uses: actions/upload-artifact@v3
-      with:
-        name: plots 
-        path: '**/plot_*.svg'
-
   simple-job:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
@@ -52,17 +12,18 @@ jobs:
     - uses: actions/checkout@v2
       with:
           submodules: recursive
-    - run: ls -alh
-    - run: hostname
-    - run: printenv
-    - run: df -h .
-
-  ipv6-test:
-    container: debian:bullseye
-    runs-on: [self-hosted, Linux, X64]
-    env:
-      GHA_PREEMPTIBLE: "false"
-    steps:
-    - run: apt -qqy update && apt -qqy install iputils-ping iproute2
-    - run: ip a
-    - run: ping -c 3 ipv6.google.com
+    - run: "apt -qqy update && apt -qqy install docker.io build-essential wget libyajl-dev"
+    - run: "mkdir -p crun && wget -qO- https://github.com/containers/crun/archive/refs/tags/1.7.tar.gz | tar xvz -C ./crun"
+    - run: |
+        cd crun
+        ./autogen.sh
+        ./configure --disable-caps --disable-seccomp --disable-systemd --disable-criu
+        patch -p1 < ../dont-set-cgroup-limits.patch
+        make
+        make install"
+    - run: "cp daemon.json /etc/docker/daemon.json"
+    - name: Run steps in Docker
+      run: |
+        dockerd -s vfs &
+        docker run -t centos cat /etc/os-release
+        kill /var/run/docker.pid
