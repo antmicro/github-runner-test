@@ -13,7 +13,7 @@ jobs:
       with:
           submodules: recursive
     - run: "apt -qqy update && apt -qqy install docker.io build-essential wget libyajl-dev"
-    - run: "mkdir -p crun && wget -qO- https://github.com/containers/crun/archive/refs/tags/1.7.tar.gz | tar xvz -C ./crun"
+    - run: "mkdir -p crun && wget -qO- https://github.com/containers/crun/archive/refs/tags/1.7.tar.gz | tar xvz --strip-components=1 -C ./crun"
     - run: |
         cd crun
         ./autogen.sh
