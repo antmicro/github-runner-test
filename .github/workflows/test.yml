@@ -16,7 +16,7 @@ jobs:
     - run: cgroupfs-mount
     - name: Run steps in Docker
       run: |
-        dockerd -s vfs -add-runtime=crun=/usr/bin/crun --default-runtime=crun &
+        dockerd -s vfs --add-runtime=crun=/usr/bin/crun --default-runtime=crun &
         sleep 30
         docker run -t centos cat /etc/os-release
         kill $(cat /var/run/docker.pid)
