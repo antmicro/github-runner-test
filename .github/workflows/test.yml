@@ -13,11 +13,10 @@ jobs:
       with:
           submodules: recursive
     - run: "apt -qqy update && apt -qqy install docker.io cgroupfs-mount crun" 
-    - run: "cp daemon.json /etc/docker/daemon.json"
     - run: cgroupfs-mount
     - name: Run steps in Docker
       run: |
-        dockerd -s vfs &
+        dockerd -s vfs -add-runtime=crun=/usr/bin/crun --default-runtime=crun &
         sleep 30
         docker run -t centos cat /etc/os-release
         kill $(cat /var/run/docker.pid)
