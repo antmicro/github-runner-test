@@ -2,7 +2,7 @@
     "default-runtime": "crun",
     "runtimes": {
         "crun": {
-            "path": "/usr/local/bin/crun",
+            "path": "/usr/bin/crun",
             "runtimeArgs": [
                     "--rootless=true"
             ]
