@@ -20,4 +20,4 @@ jobs:
         dockerd -s vfs &
         sleep 30
         docker run -t centos cat /etc/os-release
-        kill /var/run/docker.pid
+        kill $(cat /var/run/docker.pid)
