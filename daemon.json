@@ -4,7 +4,7 @@
         "crun": {
             "path": "/usr/local/bin/crun",
             "runtimeArgs": [
-                    "--cgroup-manager=disabled --rootless=true"
+                    "--rootless=true"
             ]
         }
     }

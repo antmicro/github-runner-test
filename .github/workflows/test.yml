@@ -12,16 +12,9 @@ jobs:
     - uses: actions/checkout@v2
       with:
           submodules: recursive
-    - run: "apt -qqy update && apt -qqy install docker.io build-essential wget libyajl-dev"
-    - run: "mkdir -p crun && wget -qO- https://github.com/containers/crun/archive/refs/tags/1.7.tar.gz | tar xvz --strip-components=1 -C ./crun"
-    - run: |
-        cd crun
-        ./autogen.sh
-        ./configure --disable-caps --disable-seccomp --disable-systemd --disable-criu
-        patch -p1 < ../dont-set-cgroup-limits.patch
-        make
-        make install"
+    - run: "apt -qqy update && apt -qqy install docker.io cgroupfs-mount crun" 
     - run: "cp daemon.json /etc/docker/daemon.json"
+    - run: cgroupfs-mount
     - name: Run steps in Docker
       run: |
         dockerd -s vfs &
