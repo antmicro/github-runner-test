@@ -17,6 +17,6 @@ jobs:
     - name: Run steps in Docker
       run: |
         dockerd -s fuse-overlayfs --add-runtime=crun=/usr/bin/crun --default-runtime=crun &
-        sleep 30
+        while ! test -S /var/run/docker.sock; do echo "Waiting for Docker..." && sleep 1; done; docker info
         trap "kill $(cat /var/run/docker.pid)" EXIT
         docker run -t centos cat /etc/os-release
