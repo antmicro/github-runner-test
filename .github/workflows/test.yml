@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
           submodules: recursive
-    - run: "apt -qqy update && apt -qqy --no-install-recommends install docker.io cgroupfs-mount crun fuse-overlayfs pigz" 
+    - run: "apt -qqy update && apt -qqy --no-install-recommends install docker.io cgroupfs-mount crun fuse-overlayfs pigz ca-certificates" 
     - run: cgroupfs-mount
     - name: Run steps in Docker
       run: |
