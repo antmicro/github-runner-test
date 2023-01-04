@@ -6,9 +6,12 @@ jobs:
   simple-job:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
+    strategy:
+      matrix:
+        machine_type: ["t2a-standard-1", "n2-standard-2"]
     env:
       GHA_PREEMPTIBLE: "false"
-      GHA_MACHINE_TYPE: "t2a-standard-1"
+      GHA_MACHINE_TYPE: "${{ matrix.machine_type }}"
     steps:
     - uses: actions/checkout@v2
       with:
