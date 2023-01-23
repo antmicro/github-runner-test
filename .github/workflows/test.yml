@@ -21,3 +21,9 @@ jobs:
     - run: printenv
     - run: df -h .
     - run: uname -a
+    - name: Upload performance graphs
+      uses: actions/upload-artifact@v3
+      if: success() || failure()
+      with:
+        name: "diag" 
+        path: "**/plot_*.svg" 
