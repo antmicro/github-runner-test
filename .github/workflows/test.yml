@@ -21,6 +21,7 @@ jobs:
     - run: printenv
     - run: df -h .
     - run: uname -a
+    - run: mount
     - name: Upload performance graphs
       uses: actions/upload-artifact@v3
       if: success() || failure()
