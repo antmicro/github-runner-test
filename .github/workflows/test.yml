@@ -15,6 +15,7 @@ jobs:
       GHA_SSH_TUNNEL_CONFIG: "${{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
       GHA_SSH_TUNNEL_CONFIG_SECRET_NAME: "nginx_server_config"
       GHA_SSH_TUNNEL_KEY_SECRET_NAME: "nginx_server_key"
+      GHA_CUSTOM_LINE_PREFIX: "█"
       
     steps:
     - uses: actions/checkout@v2
