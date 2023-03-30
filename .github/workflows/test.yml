@@ -3,6 +3,7 @@ on: [push]
 name: test
 
 jobs:
+
   centos:
     container: centos:7
     runs-on: [self-hosted, Linux, X64]
