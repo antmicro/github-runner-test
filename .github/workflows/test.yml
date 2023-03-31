@@ -2,6 +2,9 @@ on: [push]
 
 name: test
 
+env:
+  GHA_CUSTOM_LINE_PREFIX: "|"
+
 jobs:
 
   centos:
