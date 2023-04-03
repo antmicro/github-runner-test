@@ -66,3 +66,9 @@ jobs:
     - run: apt -qqy update && apt -qqy install iputils-ping iproute2
     - run: ip a
     - run: ping -c 3 ipv6.google.com
+
+  secret-script:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+    - run: secret_commands
