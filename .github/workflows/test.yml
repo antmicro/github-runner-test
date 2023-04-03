@@ -6,7 +6,5 @@ jobs:
   secret-script:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
-    env:
-      secret_command_NAME: "runrun"
     steps:
     - run: secret_commands
