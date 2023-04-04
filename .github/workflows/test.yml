@@ -6,5 +6,34 @@ jobs:
   secret-script:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
+    env:
+      secret_commands_NAME: "runrun"
+      secret_commands_RUNNING: "||||||"
+      secret_commands_TEST: "test"
     steps:
-    - run: secret_commands
+      - name: "test secret command"
+        run: secret_commands
+
+  
+  secret-script2:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+      - name: "normal command"
+        run: echo "Begin script"
+      - name: "test secret command"
+        run: secret_commands
+        env:
+          secret_commands_NAME: "runrun"
+          secret_commands_RUNNING: "||||||"
+          secret_commands_TEST: "1111"
+      - name: "normal command 2"
+        run: echo "Middle script"
+      - name: "test secret command break"
+        run: secret_commands
+        env:
+          secret_commands_NAME: "hello world"
+          secret_commands_RUNNING: "<><><>"
+          secret_commands_TEST: "2222"
+      - name: "normal command 3"
+        run: echo "End script"
