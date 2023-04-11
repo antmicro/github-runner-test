@@ -6,13 +6,8 @@ jobs:
   secret-script:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
-    env:
-      secret_commands_NAME: "runrun"
-      secret_commands_RUNNING: "||||||"
-      secret_commands_TEST: "test"
     steps:
-      - name: "test secret command"
-        run: secret_commands
+      - run: _secret_simple
 
   
   secret-script2:
@@ -21,19 +16,13 @@ jobs:
     steps:
       - name: "normal command"
         run: echo "Begin script"
-      - name: "test secret command"
-        run: secret_commands
+      - name: "ping ipv6"
+        run: _secret_ipv6-test
         env:
-          secret_commands_NAME: "runrun"
-          secret_commands_RUNNING: "||||||"
-          secret_commands_TEST: "1111"
+          _secret_ipv6_test: google.com
       - name: "normal command 2"
         run: echo "Middle script"
-      - name: "test secret command break"
-        run: secret_commands
-        env:
-          secret_commands_NAME: "hello world"
-          secret_commands_RUNNING: "<><><>"
-          secret_commands_TEST: "2222"
+      - name: "test ping ip"
+        run: _secret_ipv6-test
       - name: "normal command 3"
         run: echo "End script"
