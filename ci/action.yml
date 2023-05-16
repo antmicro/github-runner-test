@@ -1,0 +1,10 @@
+name: 'Test composite'
+
+description: 'Build a package'
+
+runs:
+  using: "composite"
+  steps:
+
+    - shell: bash
+      run: $GITHUB_ACTION_PATH/script.sh
