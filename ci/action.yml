@@ -6,11 +6,11 @@ runs:
   using: "composite"
   steps:
 
-    - run: echo "NEW action"
+    - run: echo "MOVED action"
       shell: bash
 
-    - run: $GITHUB_ACTION_PATH/script.sh
+    - run: $GITHUB_ACTION_PATH/script2.sh
       shell: bash
 
-    - run: echo "NEW end"
+    - run: echo "MOVED end"
       shell: bash
