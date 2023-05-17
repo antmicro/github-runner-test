@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Test scirpt"
+echo "NEW test scirpt"
