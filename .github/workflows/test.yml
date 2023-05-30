@@ -1,23 +1,556 @@
+
 on: [push]
 
 name: test
 
 jobs:
-  simple-job:
+
+  job0:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
-    strategy:
-      matrix:
-        a: [1, 2, 3]
-        b: [4, 5, 6]
-        c: [7, 8, 9]
-        d: [a, b, c]
     env:
       GHA_PREEMPTIBLE: "false"
     steps:
-    - uses: actions/checkout@v2
-      with:
-          submodules: recursive
     - run: ls -alh
     - run: hostname
-    - run: echo "${{ matrix.a }}  ${{ matrix.b}}  ${{ matrix.c }} ${{ matrix.d }}"
+    - run: echo "job 0"
+
+  job1:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 1"
+
+  job2:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 2"
+
+  job3:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 3"
+
+  job4:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 4"
+
+  job5:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 5"
+
+  job6:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 6"
+
+  job7:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 7"
+
+  job8:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 8"
+
+  job9:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 9"
+
+  job10:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 10"
+
+  job11:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 11"
+
+  job12:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 12"
+
+  job13:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 13"
+
+  job14:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 14"
+
+  job15:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 15"
+
+  job16:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 16"
+
+  job17:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 17"
+
+  job18:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 18"
+
+  job19:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 19"
+
+  job20:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 20"
+
+  job21:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 21"
+
+  job22:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 22"
+
+  job23:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 23"
+
+  job24:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 24"
+
+  job25:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 25"
+
+  job26:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 26"
+
+  job27:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 27"
+
+  job28:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 28"
+
+  job29:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 29"
+
+  job30:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 30"
+
+  job31:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 31"
+
+  job32:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 32"
+
+  job33:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 33"
+
+  job34:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 34"
+
+  job35:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 35"
+
+  job36:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 36"
+
+  job37:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 37"
+
+  job38:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 38"
+
+  job39:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 39"
+
+  job40:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 40"
+
+  job41:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 41"
+
+  job42:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 42"
+
+  job43:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 43"
+
+  job44:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 44"
+
+  job45:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 45"
+
+  job46:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 46"
+
+  job47:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 47"
+
+  job48:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 48"
+
+  job49:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 49"
+
+  job50:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 50"
+
+  job51:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 51"
+
+  job52:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 52"
+
+  job53:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 53"
+
+  job54:
+    container: debian:bullseye
+    runs-on: [self-hosted, Linux, X64]
+    env:
+      GHA_PREEMPTIBLE: "false"
+    steps:
+    - run: ls -alh
+    - run: hostname
+    - run: echo "job 54"
