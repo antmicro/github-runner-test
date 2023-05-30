@@ -3,6 +3,7 @@ on: [push]
 name: test
 
 jobs:
+
   secret-script:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
