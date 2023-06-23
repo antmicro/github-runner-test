@@ -17,10 +17,13 @@ jobs:
     - run: hostname | tee -a $ART
     - run: printenv | tee -a $ART
     - run: df -h . | tee -a $ART
+    - run: |
+        mkdir art
+        echo "test test" > art/test.txt
     - name: upload artifact
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ env.ART }}
+        path: "**/*.txt"
 
   ipv6-test:
     container: debian:bullseye
@@ -32,7 +35,10 @@ jobs:
     - run: apt -qqy update && apt -qqy install iputils-ping iproute2 | tee -a $ART
     - run: ip a | tee -a $ART
     - run: ping -c 3 ipv6.google.com | tee -a $ART
+    - run: |
+        mkdir art
+        echo "test test" > art/test.txt
     - name: upload artifact
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ env.ART }}
+        path: "**/*.txt"
