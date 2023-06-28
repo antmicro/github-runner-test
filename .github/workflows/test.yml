@@ -23,7 +23,9 @@ jobs:
     - name: upload artifact
       uses: actions/upload-artifact@v3
       with:
-        path: "**/*.txt"
+        path: |
+          art.txt
+          **/test.txt
 
 
   ipv6-test:
@@ -42,4 +44,6 @@ jobs:
     - name: upload artifact
       uses: actions/upload-artifact@v3
       with:
-        path: "**/*.txt"
+        path: |
+          art.txt
+          **/test.txt
