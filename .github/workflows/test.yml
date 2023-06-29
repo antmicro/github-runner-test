@@ -6,6 +6,9 @@ jobs:
   simple-job:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
+    strategy:
+      matrix:
+        test: [1, 2, 3]
     env:
       GHA_PREEMPTIBLE: "false"
       ART: "art.txt"
@@ -31,6 +34,9 @@ jobs:
   ipv6-test:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
+    strategy:
+      matrix:
+        test: [1, 2, 3]
     env:
       GHA_PREEMPTIBLE: "false"
       ART: "art.txt"
