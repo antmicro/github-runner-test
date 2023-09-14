@@ -24,6 +24,11 @@ jobs:
       uses: styfle/cancel-workflow-action@0.8.0
       with:
         access_token: ${{ github.token }}
+    - name: Create Cache Timestamp
+      id: cache_timestamp
+      uses: nanzm/get-time-action@v1.1
+      with:
+        format: 'YYYY-MM-DD-HH-mm-ss'
     - run: pwd
     - run: ls -alh
     - run: hostname
