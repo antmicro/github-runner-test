@@ -41,7 +41,8 @@ jobs:
       GHA_PREEMPTIBLE: "false"
       ART: "art.txt"
     steps:
-    - run: apt -qqy update && apt -qqy install iputils-ping iproute2 | tee -a $ART
+    - name: Prepare
+      run: apt -qqy update && apt -qqy install iputils-ping iproute2 | tee -a $ART
     - run: ip a | tee -a $ART
     - run: ping -c 3 ipv6.google.com | tee -a $ART
     - run: |
