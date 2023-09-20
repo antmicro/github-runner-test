@@ -10,7 +10,6 @@ jobs:
     steps:
       - run: _secret_simple
 
-  
   secret-script2:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
