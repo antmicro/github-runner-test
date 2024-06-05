@@ -11,10 +11,6 @@ jobs:
       TEST_STRING2: "VERY_COOL_STRING2"
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_PREEMPTIBLE: "false"
-      GHA_SSH_TUNNEL_KEY: "${{ secrets.GHA_SSH_TUNNEL_KEY_GARBAGE }}"
-      GHA_SSH_TUNNEL_CONFIG: "${{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
-      GHA_SSH_TUNNEL_CONFIG_SECRET_NAME: "nginx_server_config"
-      GHA_SSH_TUNNEL_KEY_SECRET_NAME: "nginx_server_key"
       
     steps:
     - uses: actions/checkout@v2
@@ -37,7 +33,6 @@ jobs:
     - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
     - run: chmod +x screenfetch
     - run: yum -y install wget
-    - run: wget http://localhost:8080 && cat index.html
     - uses: actions/upload-artifact@v3
       with:
         name: plots 
