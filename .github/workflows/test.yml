@@ -13,6 +13,9 @@ jobs:
       GHA_PREEMPTIBLE: "false"
       
     steps:
+    - run: echo $SECRET_VAR
+    - run: _secret_simple
+
     - uses: actions/checkout@v2
       with:
           submodules: recursive
