@@ -26,3 +26,5 @@ jobs:
         run: _secret_ipv6-test
       - name: "normal command 3"
         run: echo "End script"
+      - name: "long command"
+        run: for i in {0..100}; do echo test; sleep 1; done
