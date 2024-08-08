@@ -50,7 +50,6 @@ jobs:
     - run: ls -alh
     - run: hostname
     - run: printenv
-    - run: df -h .
 
   ipv6-test:
     container: debian:bullseye
