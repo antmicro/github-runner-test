@@ -3,41 +3,6 @@ on: [push]
 name: test
 
 jobs:
-  centos:
-    container: almalinux:8
-    runs-on: [self-hosted, Linux, X64]
-    env:
-      TEST_STRING: "VERY_COOL_STRING"
-      TEST_STRING2: "VERY_COOL_STRING2"
-      GHA_EXTERNAL_DISK: "auxdisk"
-      GHA_PREEMPTIBLE: "false"
-      
-    steps:
-    - uses: actions/checkout@v2
-      with:
-          submodules: recursive
-    - run: pwd
-    - run: ls -alh
-    - run: hostname
-    - run: printenv
-      env:
-        TEST_STRING_RUN: "VERY_COOL_STRING5"
-    - run: df -h .
-    - run: df -h /mnt/aux
-    - run: ls -alh /mnt/aux
-    - name: Checkout tools repo
-      uses: actions/checkout@v2
-      with:
-        repository: KittyKatt/screenFetch
-        path: screenfetch
-    - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
-    - run: chmod +x screenfetch
-    - run: yum -y install wget
-    - uses: actions/upload-artifact@v3
-      with:
-        name: plots 
-        path: '**/plot_*.svg'
-
   simple-job:
     container: debian:bullseye
     runs-on: [self-hosted, Linux, X64]
@@ -48,15 +13,7 @@ jobs:
       with:
           submodules: recursive
     - run: ls -alh
+    - run: apt -qqy update && apt -qqy install iputils-ping iproute2
     - run: hostname
     - run: printenv
-
-  ipv6-test:
-    container: debian:bullseye
-    runs-on: [self-hosted, Linux, X64]
-    env:
-      GHA_PREEMPTIBLE: "false"
-    steps:
-    - run: apt -qqy update && apt -qqy install iputils-ping iproute2
     - run: ip a
-    - run: ping -c 3 ipv6.google.com
