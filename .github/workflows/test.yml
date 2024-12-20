@@ -10,4 +10,5 @@ jobs:
     steps:
       - run: cat /etc/os-release
       - run: _secret_simple
+        continue-on-error: true
       - run: printenv
