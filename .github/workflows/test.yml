@@ -5,7 +5,7 @@ name: test
 jobs:
 
   secret-script:
-    container: debian:bullseye
+    container: debian:trixie
     runs-on: [self-hosted, Linux, X64]
     steps:
       - run: cat /etc/os-release
