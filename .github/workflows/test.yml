@@ -19,6 +19,7 @@ jobs:
     - run: pwd
     - run: ls -alh
     - run: hostname
+    - run: echo test
     - run: printenv
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING5"
