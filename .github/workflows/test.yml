@@ -34,7 +34,7 @@ jobs:
     - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
     - run: chmod +x screenfetch
     - run: yum -y install wget
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: plots 
         path: '**/plot_*.svg'
