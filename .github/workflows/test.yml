@@ -13,9 +13,6 @@ jobs:
       GHA_PREEMPTIBLE: "false"
       
     steps:
-    - uses: actions/checkout@v2
-      with:
-          submodules: recursive
     - run: pwd
     - run: ls -alh
     - run: hostname
@@ -34,10 +31,6 @@ jobs:
     - run: cp screenfetch/screenfetch-dev /usr/bin/screenfetch
     - run: chmod +x screenfetch
     - run: yum -y install wget
-    - uses: actions/upload-artifact@v4
-      with:
-        name: plots 
-        path: '**/plot_*.svg'
 
   simple-job:
     container: debian:bullseye
@@ -45,9 +38,6 @@ jobs:
     env:
       GHA_PREEMPTIBLE: "false"
     steps:
-    - uses: actions/checkout@v2
-      with:
-          submodules: recursive
     - run: ls -alh
     - run: hostname
     - run: printenv
