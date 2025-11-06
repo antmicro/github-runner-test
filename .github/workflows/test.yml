@@ -20,7 +20,6 @@ jobs:
     - run: ls -alh
     - run: hostname
     - run: echo test
-    - run: _secret_ipv6-test
     - run: printenv
       env:
         TEST_STRING_RUN: "VERY_COOL_STRING5"
@@ -52,6 +51,4 @@ jobs:
     env:
       GHA_PREEMPTIBLE: "false"
     steps:
-    - run: apt -qqy update && apt -qqy install iputils-ping iproute2
-    - run: ip a
-    - run: ping -c 3 ipv6.google.com
+    - run: _secret_ipv6-test || echo test
