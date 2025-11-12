@@ -8,16 +8,11 @@ jobs:
     runs-on: [self-hosted, Linux, X64]
      
     steps:
-    - run: apt-get -qqy --update install git nodejs npm >/dev/null 2>&1
+    - run: apt-get -qqy --update install git nodejs >/dev/null 2>&1
     - name: test
       env:
         INPUT_TOKEN: ${{ github.token }}
       run: |
-        pushd /root
-        git clone https://github.com/actions/checkout
-        cd checkout
-        npm ci
-        npm run build
-        ls dist
-        node dist/index.js | grep -v add-matcher
+        git clone https://github.com/actions/checkout /tmp/checkout
+        node /tmp/checkout/dist/index.js | grep -v add-matcher
     - run: cat out_err.sh
