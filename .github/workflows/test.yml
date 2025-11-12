@@ -4,27 +4,17 @@ name: test
 
 jobs:
   no-secrets:
-    container: almalinux:10
+    container: debian:trixie
     runs-on: [self-hosted, Linux, X64]
      
     steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - run: pwd
-
-  secret-bad:
-    container: debian:bullseye
-    runs-on: [self-hosted, Linux, X64]
-    env:
-      GHA_PREEMPTIBLE: "false"
-    steps:
-    - run: _secret_ipv6-test || echo test
-
-  secret-ok:
-    container: debian:bullseye
-    runs-on: [self-hosted, Linux, X64]
-    env:
-      GHA_PREEMPTIBLE: "false"
-    steps:
-    - run: _secret_ipv6-test
+    - run: |
+        apt-get -qqy --update install git nodejs npm
+        pushd /tmp
+        git clone https://github.com/actions/checkout
+        cd checkout
+        npm ci
+        npm run build
+        node dist/index.js
+        popd
+        ls
