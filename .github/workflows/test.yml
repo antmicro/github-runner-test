@@ -18,8 +18,7 @@ jobs:
         cd checkout
         npm ci
         npm run build
-        sleep 1000
         ls dist
-        node dist/index.js
+        node dist/index.js | grep -v add-matcher
         popd
         ls
