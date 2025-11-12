@@ -8,8 +8,11 @@ jobs:
     runs-on: [self-hosted, Linux, X64]
      
     steps:
-    - run: |
-        apt-get -qqy --update install git nodejs npm
+    - name: test
+      env:
+        INPUT_TOKEN: ${{ github.token }}
+      run: |
+        apt-get -qqy --update install git nodejs npm >/dev/null 2>&1
         pushd /tmp
         git clone https://github.com/actions/checkout
         cd checkout
