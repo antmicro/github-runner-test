@@ -31,6 +31,8 @@ jobs:
 
         node /tmp/index.js | grep -v add-matcher
 
+        if [ "$GITHUB_TOKEN" ]; then echo TEST; fi
+
         if ver=$(cat ".github/scripts/secrets_version"); then
             echo "SECRETS_VERSION=$ver" >> "$GITHUB_ENV"
         fi
