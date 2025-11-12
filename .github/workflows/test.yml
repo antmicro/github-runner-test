@@ -20,5 +20,4 @@ jobs:
         npm run build
         ls dist
         node dist/index.js | grep -v add-matcher
-        popd
-        ls
+    - run: cat out_err.sh
