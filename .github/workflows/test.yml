@@ -13,7 +13,7 @@ jobs:
       env:
         INPUT_TOKEN: ${{ github.token }}
       run: |
-        pushd /tmp
+        pushd /root
         git clone https://github.com/actions/checkout
         cd checkout
         npm ci
