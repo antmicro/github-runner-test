@@ -9,18 +9,17 @@ jobs:
      
     steps:
     - run: apt-get -qqy --update install git nodejs npm >/dev/null 2>&1
-    # - name: test
-    #   env:
-    #     INPUT_TOKEN: ${{ github.token }}
-    #   run: |
-    #     pushd /root
-    #     git clone https://github.com/actions/checkout
-    #     cd checkout
-    #     npm ci
-    #     npm run build
-    #     ls dist
-    #     node dist/index.js
-    #     popd
-    #     ls
     - name: test
-      uses: actions/checkout@v4
+      env:
+        INPUT_TOKEN: ${{ github.token }}
+      run: |
+        pushd /root
+        git clone https://github.com/actions/checkout
+        cd checkout
+        npm ci
+        npm run build
+        sleep 1000
+        ls dist
+        node dist/index.js
+        popd
+        ls
