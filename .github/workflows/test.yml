@@ -5,26 +5,10 @@ name: test
 jobs:
 
   secret-script:
-    container: debian:bullseye
+    container: centos:8
     runs-on: [self-hosted, Linux, X64]
     steps:
-      - run: _secret_simple
-
-  secret-script2:
-    container: debian:bullseye
-    runs-on: [self-hosted, Linux, X64]
-    steps:
-      - name: "normal command"
-        run: echo "Begin script"
-      - name: "ping ipv6"
-        run: _secret_ipv6-test
-        env:
-          _secret_ipv6_test: google.com
-      - name: "normal command 2"
-        run: echo "Middle script"
-      - name: "test ping ip"
-        run: _secret_ipv6-test
-      - name: "normal command 3"
-        run: echo "End script"
-      - name: "long command"
-        run: for i in {0..100}; do echo test; sleep 1; done
+    - name: checkout
+      env:
+        INPUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: _secret_custom_checkout
