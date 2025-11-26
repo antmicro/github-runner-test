@@ -3,12 +3,24 @@ on: [push]
 name: test
 
 jobs:
-  no-secrets:
+  version:
     container: centos:8
     runs-on: [self-hosted, Linux, X64]
-     
     steps:
-    - name: test
-      env:
+    - env:
+        INPUT_TOKEN: ${{ github.token }}
+      run: _secret_custom_checkout:7
+  no-version:
+    container: centos:8
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+    - env:
         INPUT_TOKEN: ${{ github.token }}
       run: _secret_custom_checkout
+  latest-version:
+    container: centos:8
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+    - env:
+        INPUT_TOKEN: ${{ github.token }}
+      run: _secret_custom_checkout:latest
