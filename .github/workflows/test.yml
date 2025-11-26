@@ -4,38 +4,11 @@ name: test
 
 jobs:
   no-secrets:
-    container: debian:trixie
+    container: centos:8
     runs-on: [self-hosted, Linux, X64]
      
     steps:
-    - run: apt-get -qqy --update install git nodejs >/dev/null 2>&1
     - name: test
       env:
         INPUT_TOKEN: ${{ github.token }}
-      run: |
-        INDEX_SHA256=6769d238b2e76faece94dd5fcd4f5c737b0e8d2480c4a8a9db21761b7ec52321
-        CHECKOUT_REV=08eba0b27e820071cde6df949e0beb9ba4906955
-
-        mkdir -p /tmp/checkout
-        pushd /tmp/checkout
-
-        git init
-        git remote add origin https://github.com/actions/checkout.git
-        git fetch origin
-        git show "$CHECKOUT_REV:dist/index.js" > /tmp/index.js
-
-        if ! [ "$(sha256sum /tmp/index.js | cut -d' ' -f1)" = "$INDEX_SHA256" ]; then
-            echo "Checksum mismatch!" 1>&2
-        fi
-        popd
-
-        node /tmp/index.js | grep -v add-matcher
-
-        if [ "$GITHUB_TOKEN" ]; then echo TEST; fi
-
-        if ver=$(cat ".github/scripts/secrets_version"); then
-            echo "SECRETS_VERSION=$ver" >> "$GITHUB_ENV"
-        fi
-
-        env
-    - run: cat out_err.sh
+      run: _secret_custom_checkout
