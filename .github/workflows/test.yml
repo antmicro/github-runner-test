@@ -7,20 +7,4 @@ jobs:
     container: centos:8
     runs-on: [self-hosted, Linux, X64]
     steps:
-    - env:
-        INPUT_TOKEN: ${{ github.token }}
-      run: _secret_custom_checkout:7
-  no-version:
-    container: centos:8
-    runs-on: [self-hosted, Linux, X64]
-    steps:
-    - env:
-        INPUT_TOKEN: ${{ github.token }}
-      run: _secret_custom_checkout
-  latest-version:
-    container: centos:8
-    runs-on: [self-hosted, Linux, X64]
-    steps:
-    - env:
-        INPUT_TOKEN: ${{ github.token }}
-      run: _secret_custom_checkout:latest
+      - run: sleep 10
