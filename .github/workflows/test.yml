@@ -15,5 +15,22 @@ jobs:
     - run: df -h .
     - run: df -h /mnt/aux
     - run: ls -alh /mnt/aux
+    - run: |
+        cat /etc/resolv.conf
+        echo "nameserver 1.1.1.1" > /etc/resolv.conf
+        sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+        sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+        dnf install -y wget
+        wget --version 
+        mkdir -p jq
+        wget --progress=dot:mega https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-linux-amd64 -O jq/jq
+        chmod +x jq/jq
+        export PATH=$PWD/jq:$PATH
+        echo "$KEYS"
+        export HASH="$(echo lorem_ipsum.age | sha256sum | awk '{print $1}')"
+        echo $HASH
+        echo "$KEYS" | jq -r .\"$HASH\"
+        echo "$KEYS" | jq -r .\"$HASH\" | base64 -d
+        echo "PATH=$PATH" >> $GITHUB_ENV
     - run: _secret_custom_get_tools_v2
     - run: ls -lah .
