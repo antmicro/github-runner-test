@@ -7,14 +7,13 @@ jobs:
     container: centos:8
     runs-on: [self-hosted, Linux, X64]
     env:
-      TEST_STRING: "VERY_COOL_STRING"
-      TEST_STRING2: "VERY_COOL_STRING2"
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_PREEMPTIBLE: "false"
+      KEYS: "${{ secrets.KEYS }}"
       
     steps:
     - run: df -h .
     - run: df -h /mnt/aux
     - run: ls -alh /mnt/aux
-    - run: sleep 8h
-
+    - run: _secret_custom_get_tools_v2
+    - run: ls -lah .
