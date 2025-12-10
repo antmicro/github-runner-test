@@ -8,6 +8,7 @@ jobs:
     runs-on: [self-hosted, Linux, X64, gcp-disk-test]
     env:
       GHA_EXTERNAL_DISK: "auxdisk"
+      GHA_DISK_SIZE: "50"
       GHA_PREEMPTIBLE: "false"
       KEYS: "${{ secrets.KEYS }}"
       
