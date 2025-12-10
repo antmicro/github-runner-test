@@ -5,7 +5,7 @@ name: test
 jobs:
   centos:
     container: centos:8
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: [self-hosted, Linux, X64, gcp-disk-test]
     env:
       GHA_EXTERNAL_DISK: "auxdisk"
       GHA_PREEMPTIBLE: "false"
