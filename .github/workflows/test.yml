@@ -13,7 +13,7 @@ jobs:
       GHA_PREEMPTIBLE: "false"
       
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkoutt@v1
       with:
           submodules: recursive
     - run: pwd
