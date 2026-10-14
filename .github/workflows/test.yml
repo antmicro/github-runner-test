@@ -7,6 +7,5 @@ jobs:
     container: centos:8
     runs-on: [self-hosted, Linux, X64]
     steps:
-      - run: node --version
       - uses: actions/checkout@v7
       - run: sleep 10
