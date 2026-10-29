@@ -4,8 +4,8 @@ name: test
 
 jobs:
   version:
-    container: centos:8
+    container: debian:trixie
     runs-on: [self-hosted, Linux, X64]
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
       - run: sleep 10
