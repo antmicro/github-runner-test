@@ -7,9 +7,9 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    # container: debian:trixie
-    # runs-on: [self-hosted, Linux, X64]
-    runs-on: [ubuntu-latest]
+    container: debian:trixie
+    runs-on: [self-hosted, Linux, X64]
+    # runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v7
         with:
@@ -22,11 +22,18 @@ jobs:
           cleanup_credentials: true
           create_credentials_file: true
           export_environment_variables: false
-      - run: ls -lha
       - uses: bazel-contrib/setup-bazel@0.19.2
         with:
           bazelisk-cache: true
-          repository-cache: true
+          # repository-cache: true
           module-root: ./cpp-tutorial/stage1
           google-credentials: ${{ steps.gcp-auth.outputs.credentials_file_path }}
-      - run: bazelisk build //main:hello-world
+      - run: ls -lha
+      - run: echo $PATH
+      - run: ls -l /usr/local/bin
+      - run: ls -l /root/.cache/
+      - run: ls -l /root/.cache/bazel
+      - run: ls -l /root/.cache/bazelisk
+      - run: which bazel
+      - run: bazel build --google_credentials=${{ steps.gcp-auth.outputs.credentials_file_path }} --remote_upload_local_results --remote_cache=https://storage.googleapis.com/gha-runners-bazel-cache //main:hello-world
+        working-directory: ./cpp-tutorial/stage1
