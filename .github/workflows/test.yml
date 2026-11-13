@@ -7,8 +7,9 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    container: debian:trixie
-    runs-on: [self-hosted, Linux, X64]
+    # container: debian:trixie
+    # runs-on: [self-hosted, Linux, X64]
+    runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v7
         with:
