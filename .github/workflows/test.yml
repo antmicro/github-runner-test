@@ -8,8 +8,8 @@ jobs:
       contents: read
       id-token: write
     container: debian:trixie
-    runs-on: [self-hosted, Linux, X64]
-    # runs-on: [ubuntu-latest]
+    # runs-on: [self-hosted, Linux, X64]
+    runs-on: [ubuntu-latest]
     steps:
       - run: echo test > /usr/local/share/test
       - uses: actions/cache@v3
