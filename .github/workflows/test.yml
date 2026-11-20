@@ -17,17 +17,12 @@ jobs:
           repository: bazelbuild/examples
           path: /usr/local/share/test
           key: ${{ runner.os }}-test
-
-  upstream:
-    permissions:
-      contents: read
-      id-token: write
-    container: debian:trixie
-    runs-on: [ubuntu-latest]
-    steps:
-      - run: echo test > /usr/local/share/test
-      - uses: actions/cache@v3
+          
+      - name: Bazel setup
+        uses: bazel-contrib/setup-bazel@0.19.2
         with:
-          repository: bazelbuild/examples
-          path: /usr/local/share/test
-          key: ${{ runner.os }}-test
+          bazelisk-version: v1.30.0
+          bazelisk-cache: false
+          cache-save: false
+          external-cache: false
+          repository-cache: false
