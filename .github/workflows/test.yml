@@ -17,3 +17,17 @@ jobs:
           repository: bazelbuild/examples
           path: /usr/local/share/test
           key: ${{ runner.os }}-test
+
+  upstream:
+    permissions:
+      contents: read
+      id-token: write
+    container: debian:trixie
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: echo test > /usr/local/share/test
+      - uses: actions/cache@v3
+        with:
+          repository: bazelbuild/examples
+          path: /usr/local/share/test
+          key: ${{ runner.os }}-test
